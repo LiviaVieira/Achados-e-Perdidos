@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Itens Perdidos</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+    <a class="navbar-brand" href="/">
+        Achados e Perdidos IF
+    </a>
+
+</nav>
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">
+        Tabela de Itens Perdidos
+    </h2>
+
+    <table class="table table-striped">
+
+        <thead class="thead-dark">
+
+            <tr>
+
+                <th>Nome</th>
+                <th>Descrição</th>
+                <th>Data da Perda</th>
+                <th>Status</th>
+                <th>Categoria</th>
+                <th>Local</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for item in itens %}
+
+            <tr>
+
+                <td>{{ item.nome_item }}</td>
+
+                <td>{{ item.descricao }}</td>
+
+                <td>{{ item.data_perda }}</td>
+
+                <td>{{ item.status }}</td>
+
+                <td>{{ item.categoria }}</td>
+
+                <td>{{ item.local }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Locais Encontrados</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2>
+        Locais Encontrados
+    </h2>
+
+    <table class="table table-striped">
+
+        <thead class="thead-dark">
+
+            <tr>
+
+                <th>Nome do Local</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for local in locais %}
+
+            <tr>
+
+                <td>{{ local.nome_local }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

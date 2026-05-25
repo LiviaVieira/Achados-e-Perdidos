@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Categorias</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2>
+        Categorias
+    </h2>
+
+    <table class="table table-striped">
+
+        <thead class="thead-dark">
+
+            <tr>
+
+                <th>Nome</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for categoria in categorias %}
+
+            <tr>
+
+                <td>{{ categoria.nome }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

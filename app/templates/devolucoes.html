@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Devoluções</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+</head>
+
+<body>
+
+<div class="container mt-5">
+
+    <h2>
+        Devoluções
+    </h2>
+
+    <table class="table table-striped">
+
+        <thead class="thead-dark">
+
+            <tr>
+
+                <th>Item</th>
+                <th>Data Devolução</th>
+                <th>Observações</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for devolucao in devolucoes %}
+
+            <tr>
+
+                <td>{{ devolucao.item }}</td>
+
+                <td>{{ devolucao.data_devolucao }}</td>
+
+                <td>{{ devolucao.observacoes }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

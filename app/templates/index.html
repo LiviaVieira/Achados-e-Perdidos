@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Achados e Perdidos IF</title>
+
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+    <style>
+
+        body{
+            background-color: #f5f5f5;
+        }
+
+        .navbar{
+            background-color: #007bff;
+        }
+
+        .navbar-brand{
+            font-weight: bold;
+        }
+
+        .banner{
+
+            background-color: white;
+
+            padding: 60px;
+
+            border-radius: 15px;
+
+            margin-top: 40px;
+
+            text-align: center;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        }
+
+        .banner h1{
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .banner p{
+            font-size: 18px;
+            color: #555;
+        }
+
+        .card{
+
+            border: none;
+
+            border-radius: 12px;
+
+            transition: 0.3s;
+
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+        }
+
+        .card:hover{
+
+            transform: scale(1.03);
+
+        }
+
+        .card-title{
+            color: #007bff;
+            font-weight: bold;
+        }
+
+        footer{
+
+            margin-top: 50px;
+
+            background-color: #007bff;
+
+            color: white;
+
+            text-align: center;
+
+            padding: 15px;
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark">
+
+        <a class="navbar-brand" href="/">
+            Achados e Perdidos IF
+        </a>
+
+        <button class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav">
+
+            <span class="navbar-toggler-icon"></span>
+
+        </button>
+
+        <div class="collapse navbar-collapse"
+             id="navbarNav">
+
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/itens/">
+                        Itens
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/categorias/">
+                        Categorias
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/usuarios/">
+                        Usuários
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/locais/">
+                        Locais
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/devolucoes/">
+                        Devoluções
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/admin/">
+                        Administração
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+
+    </nav>
+
+
+    <!-- BANNER -->
+
+    <div class="container">
+
+        <div class="banner">
+
+            <h1>
+                Sistema de Achados e Perdidos
+            </h1>
+
+            <p>
+                Organize e encontre objetos perdidos dentro do IF.
+            </p>
+
+            <a href="/admin/"
+               class="btn btn-primary mt-3">
+
+                Acessar Administração
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- FUNCIONALIDADES -->
+
+    <div class="container mt-5">
+
+        <h1 class="text-center mb-4">
+            Funcionalidades
+        </h1>
+
+        <div class="row">
+
+            <!-- CARD 1 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/itens/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Itens Perdidos
+                        </h4>
+
+                        <p>
+                            Consulte os itens cadastrados.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- CARD 2 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/encontrados/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Itens Encontrados
+                        </h4>
+
+                        <p>
+                            Veja os objetos encontrados.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- CARD 3 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/devolucoes/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Devoluções
+                        </h4>
+
+                        <p>
+                            Controle dos itens devolvidos.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- CARD 4 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/categorias/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Categorias
+                        </h4>
+
+                        <p>
+                            Organização por categorias.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- CARD 5 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/usuarios/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Usuários
+                        </h4>
+
+                        <p>
+                            Responsáveis pelos registros.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            <!-- CARD 6 -->
+
+            <div class="col-md-4 mb-4">
+
+                <a href="/locais/"
+                   style="text-decoration: none; color: black;">
+
+                    <div class="card text-center p-4">
+
+                        <h4 class="card-title">
+                            Locais
+                        </h4>
+
+                        <p>
+                            Locais onde os itens foram encontrados.
+                        </p>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        Sistema de Achados e Perdidos IF - 2026
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
