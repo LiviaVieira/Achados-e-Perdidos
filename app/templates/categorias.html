@@ -1,52 +1,66 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta charset="UTF-8">
+<title>cATEGORIAS</title>
 
-    <title>Categorias</title>
+<link rel="stylesheet"
+href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 
-    <link rel="stylesheet"
-          href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+body{
+    background:#f5f5f5;
+}
+
+.container{
+    margin-top:40px;
+}
+
+.card{
+    padding:20px;
+    border:none;
+    box-shadow:0 2px 8px rgba(0,0,0,.1);
+}
+
+h2{
+    color:#007bff;
+}
+
+</style>
 
 </head>
-
 <body>
 
-<div class="container mt-5">
+<div class="container">
 
-    <h2>
-        Categorias
-    </h2>
+    <div class="card">
 
-    <table class="table table-striped">
+        <h2>CATEGORIAS</h2>
 
-        <thead class="thead-dark">
+        <a href="/"
+           class="btn btn-primary mb-3">
+           Voltar
+        </a>
+
+        <table class="table table-bordered">
 
             <tr>
-
-                <th>Nome</th>
-
+            <th>ID</th>
+            <th>Nome</th>
             </tr>
-
-        </thead>
-
-        <tbody>
-
+            
             {% for categoria in categorias %}
-
             <tr>
-
-                <td>{{ categoria.nome }}</td>
-
+            <td>{{ categoria.id }}</td>
+            <td>{{ categoria.nome }}</td>
             </tr>
-
             {% endfor %}
+            
+            </table>
 
-        </tbody>
-
-    </table>
+    </div>
 
 </div>
 

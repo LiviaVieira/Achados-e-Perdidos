@@ -1,7 +1,8 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render
 from django.views import View
 
 from .models import *
+
 
 class IndexView(View):
 
@@ -88,4 +89,121 @@ class DevolucoesView(View):
             request,
             'devolucoes.html',
             {'devolucoes': devolucoes}
+        )
+
+
+class ConsultasView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        consultas = ConsultaItem.objects.all()
+
+        return render(
+            request,
+            'consultas.html',
+            {'consultas': consultas}
+        )
+
+
+class AtualizacoesView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        atualizacoes = AtualizacaoItem.objects.all()
+
+        return render(
+            request,
+            'atualizacoes.html',
+            {'atualizacoes': atualizacoes}
+        )
+
+
+class ExclusoesView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        exclusoes = ExcluirItem.objects.all()
+
+        return render(
+            request,
+            'exclusoes.html',
+            {'exclusoes': exclusoes}
+        )
+
+
+class HistoricoView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        historicos = HistoricoDevolucao.objects.all()
+
+        return render(
+            request,
+            'historico.html',
+            {'historicos': historicos}
+        )
+
+
+class LoginView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        logins = Login.objects.all()
+
+        return render(
+            request,
+            'login.html',
+            {'logins': logins}
+        )
+
+
+class StatusView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        status = StatusItem.objects.all()
+
+        return render(
+            request,
+            'status.html',
+            {'status': status}
+        )
+
+
+class RegistrarView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        registros = Registrar.objects.all()
+
+        return render(
+            request,
+            'registrar.html',
+            {'registros': registros}
+        )
+
+
+class FiltroCategoriaView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        filtros = FiltroCategoria.objects.all()
+
+        return render(
+            request,
+            'filtros.html',
+            {'filtros': filtros}
+        )
+
+
+class RelatoriosView(View):
+
+    def get(self, request, *args, **kwargs):
+
+        relatorios = Relatorio.objects.all()
+
+        return render(
+            request,
+            'relatorios.html',
+            {'relatorios': relatorios}
         )

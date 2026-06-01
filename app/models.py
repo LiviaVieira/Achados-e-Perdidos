@@ -1,157 +1,131 @@
 from django.db import models
 
+class Categoria(models.Model):
+    nome = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.nome
+
 
 class Usuario(models.Model):
-
-    nome = models.CharField(
-        max_length=100,
-        verbose_name="Nome do usuário"
-    )
-
-    email = models.CharField(
-        max_length=100,
-        verbose_name="Email do usuário"
-    )
-
-    telefone = models.CharField(
-        max_length=20,
-        verbose_name="Telefone"
-    )
-
-    tipo_usuario = models.CharField(
-        max_length=30,
-        verbose_name="Tipo de usuário"
-    )
+    nome = models.CharField(max_length=100)
+    email = models.CharField(max_length=100)
+    telefone = models.CharField(max_length=20)
+    tipo_usuario = models.CharField(max_length=50)
 
     def __str__(self):
         return self.nome
 
-    class Meta:
-        verbose_name = "Usuário"
-        verbose_name_plural = "Usuários"
 
-
-class Categoria(models.Model):
-
-    nome = models.CharField(
-        max_length=50,
-        verbose_name="Categoria"
-    )
+class StatusItem(models.Model):
+    status = models.CharField(max_length=50)
 
     def __str__(self):
-        return self.nome
-
-    class Meta:
-        verbose_name = "Categoria"
-        verbose_name_plural = "Categorias"
+        return self.status
 
 
 class LocalEncontrado(models.Model):
-
-    nome_local = models.CharField(
-        max_length=50,
-        verbose_name="Local encontrado"
-    )
+    nome_local = models.CharField(max_length=100)
 
     def __str__(self):
         return self.nome_local
 
-    class Meta:
-        verbose_name = "Local Encontrado"
-        verbose_name_plural = "Locais Encontrados"
-
 
 class ItemPerdido(models.Model):
-
-    nome_item = models.CharField(
-        max_length=100,
-        verbose_name="Nome do item"
-    )
-
-    descricao = models.CharField(
-        max_length=255,
-        verbose_name="Descrição"
-    )
-
-    data_perda = models.DateField(
-        verbose_name="Data da perda"
-    )
-
-    status = models.CharField(
-        max_length=30,
-        verbose_name="Status"
-    )
-
-    categoria = models.ForeignKey(
-        Categoria,
-        on_delete=models.CASCADE,
-        verbose_name="Categoria"
-    )
-
-    local = models.ForeignKey(
-        LocalEncontrado,
-        on_delete=models.CASCADE,
-        verbose_name="Local encontrado"
-    )
+    nome_item = models.CharField(max_length=100)
+    descricao = models.TextField()
+    data_perda = models.DateField()
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    status = models.ForeignKey(StatusItem, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome_item
 
-    class Meta:
-        verbose_name = "Item Perdido"
-        verbose_name_plural = "Itens Perdidos"
-
 
 class ItemEncontrado(models.Model):
-
-    item = models.ForeignKey(
-        ItemPerdido,
-        on_delete=models.CASCADE,
-        verbose_name="Item perdido"
-    )
-
-    local_encontrado = models.CharField(
-        max_length=50,
-        verbose_name="Local encontrado"
-    )
-
-    data_encontro = models.DateField(
-        verbose_name="Data do encontro"
-    )
+    nome_item = models.CharField(max_length=100)
+    descricao = models.TextField()
+    local_encontrado = models.ForeignKey(LocalEncontrado, on_delete=models.CASCADE)
+    data_encontro = models.DateField()
 
     def __str__(self):
-        return f"{self.item}"
+        return self.nome_item
 
-    class Meta:
-        verbose_name = "Item Encontrado"
-        verbose_name_plural = "Itens Encontrados"
+
+class ConsultaItem(models.Model):
+    pesquisa = models.CharField(max_length=100)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    data = models.DateField()
+
+    def __str__(self):
+        return self.pesquisa
+
 
 class Devolucao(models.Model):
+    data_devolucao = models.DateField()
+    responsavel = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    observacoes = models.TextField()
 
-    item = models.ForeignKey(
-        ItemPerdido,
-        on_delete=models.CASCADE,
-        verbose_name="Item devolvido"
-    )
+    def __str__(self):
+        return f"Devolução {self.id}"
 
-    usuario = models.ForeignKey(
+
+class AtualizacaoItem(models.Model):
+    descricao = models.TextField()
+    status = models.ForeignKey(StatusItem, on_delete=models.CASCADE)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Atualização {self.id}"
+
+
+class ExcluirItem(models.Model):
+    id_item = models.IntegerField()
+    motivo_exclusao = models.CharField(max_length=200)
+
+    def __str__(self):
+        return f"Exclusão {self.id_item}"
+
+
+class HistoricoDevolucao(models.Model):
+    item = models.ForeignKey(ItemPerdido, on_delete=models.CASCADE)
+    dono = models.CharField(max_length=100)
+    data_devolucao = models.DateField()
+
+    def __str__(self):
+        return self.dono
+
+
+class Login(models.Model):
+    email = models.CharField(max_length=100)
+    senha = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.email
+
+
+class Registrar(models.Model):
+    responsavel_cadastro = models.ForeignKey(
         Usuario,
-        on_delete=models.CASCADE,
-        verbose_name="Usuário"
-    )
-
-    data_devolucao = models.DateField(
-        verbose_name="Data da devolução"
-    )
-
-    observacoes = models.CharField(
-        max_length=255,
-        verbose_name="Observações"
+        on_delete=models.CASCADE
     )
 
     def __str__(self):
-        return f"{self.item}"
+        return self.responsavel_cadastro.nome
 
-    class Meta:
-        verbose_name = "Devolução"
-        verbose_name_plural = "Devoluções"
+
+class FiltroCategoria(models.Model):
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)
+    quantidade_itens = models.IntegerField()
+
+    def __str__(self):
+        return self.categoria.nome
+
+
+class Relatorio(models.Model):
+    quantidade = models.IntegerField()
+    categorias = models.CharField(max_length=200)
+    datas = models.DateField()
+
+    def __str__(self):
+        return f"Relatório {self.id}"

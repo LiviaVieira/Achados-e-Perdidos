@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>USUARIOS</title>
+<title>CONSULTA DE ITENS</title>
 
 <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -37,7 +37,7 @@ h2{
 
     <div class="card">
 
-        <h2>USUARIOS</h2>
+        <h2>CONSULTAS DE ITENS</h2>
 
         <a href="/"
            class="btn btn-primary mb-3">
@@ -47,18 +47,16 @@ h2{
         <table class="table table-bordered">
 
             <tr>
-            <th>Nome</th>
-            <th>Email</th>
-            <th>Telefone</th>
-            <th>Tipo</th>
+            <th>Pesquisa</th>
+            <th>Categoria</th>
+            <th>Data</th>
             </tr>
             
-            {% for usuario in usuarios %}
+            {% for consulta in consultas %}
             <tr>
-            <td>{{ usuario.nome }}</td>
-            <td>{{ usuario.email }}</td>
-            <td>{{ usuario.telefone }}</td>
-            <td>{{ usuario.tipo_usuario }}</td>
+            <td>{{ consulta.pesquisa }}</td>
+            <td>{{ consulta.categoria }}</td>
+            <td>{{ consulta.data }}</td>
             </tr>
             {% endfor %}
             
