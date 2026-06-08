@@ -1,6 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-
 from .models import *
 
 
@@ -146,14 +145,26 @@ class HistoricoView(View):
 
 class LoginView(View):
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request):
+        return render(request, 'login.html')
 
-        logins = Login.objects.all()
+    def post(self, request):
+
+        email = request.POST.get('email')
+        senha = request.POST.get('senha')
+
+        usuario = Login.objects.filter(
+            email=email,
+            senha=senha
+        ).first()
+
+        if usuario:
+            return redirect('/')
 
         return render(
             request,
             'login.html',
-            {'logins': logins}
+            {'erro': 'Email ou senha inválidos'}
         )
 
 

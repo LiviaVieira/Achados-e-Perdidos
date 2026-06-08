@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>TÍTULO DA PÁGINA</title>
+<title>RESPONSÁVEIS</title>
 
 <link rel="stylesheet"
 href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -37,14 +37,28 @@ h2{
 
     <div class="card">
 
-        <h2>TÍTULO DA PÁGINA</h2>
+        <h2>RESPONSÁVEIS</h2>
 
         <a href="/"
            class="btn btn-primary mb-3">
            Voltar
         </a>
 
-        <!-- TABELA AQUI -->
+        <table class="table table-bordered">
+
+            <tr>
+            <th>ID</th>
+            <th>Responsável</th>
+            </tr>
+            
+            {% for registro in registros %}
+            <tr>
+            <td>{{ registro.id }}</td>
+            <td>{{ registro.responsavel_cadastro }}</td>
+            </tr>
+            {% endfor %}
+            
+            </table>
 
     </div>
 
